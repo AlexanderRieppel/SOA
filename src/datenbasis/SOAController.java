@@ -6,12 +6,12 @@ import javax.swing.JFrame;
 /**
  * Klasse erstellt ein Fenster mit Hilfe von swing
  * 
- * @author RIEPPEL,DIMITRIJEVIC,ALY
- * @version 2013-01-10
+ * @author 
+ * @version 
  */
-public class XMLFrame extends JFrame {
+public class SOAController extends JFrame {
 	public static void main(String[] args) {
-		XMLGUI tbp = new XMLGUI();
+		SOAGUI tbp = new SOAGUI();
 		JFrame f = new JFrame("XML");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.getContentPane().add(tbp, BorderLayout.CENTER);
