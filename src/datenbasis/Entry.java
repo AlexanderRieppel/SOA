@@ -1,14 +1,13 @@
 package datenbasis;
 
 public class Entry {
-	private int id;
 	private String key;
 	private String content;
 	public Entry(){
 		key="empty";
 		content="empty";
 	}
-	public Entry(int id,String key,String content){
+	public Entry(String key,String content){
 		this.key=key;
 		this.content=content;
 	}
@@ -24,4 +23,5 @@ public class Entry {
 	public void setContent(String content){
 		this.content=content;
 	}
+	
 }
