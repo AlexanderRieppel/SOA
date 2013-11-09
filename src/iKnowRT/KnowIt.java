@@ -30,10 +30,12 @@ public class KnowIt {
 				break;
 			case "A":
 				args=prepareAddArgs(args);
+				args[1]=url;
 				add(args);
 				break;
 			case "ADD":
 				args=prepareAddArgs(args);
+				args[1]=url;
 				add(args);
 				break;
 			default:
@@ -46,7 +48,6 @@ public class KnowIt {
 	}
 	/**
 	 * Fuehrt SOA Suche aus
-	 * @param args [0] unwichtig [1] URL [2] suchbegriff
 	 */
 	public static void search (String[] args){
 		URL url = null;
@@ -54,10 +55,10 @@ public class KnowIt {
 		try {
 			url = new URL (args[1]+"?wsdl");
 		} catch (MalformedURLException e) {
-			System.out.println("URL nciht correct angegeben");
+			System.out.println("URL nicht correct angegeben");
 			synopsis();
 		}
-		QName qName = new QName ("http://iKnowRT/","SearcherService");
+		QName qName = new QName ("http://iKnowRT/","ServerIsDoingITService");
 		Service service = Service.create(url,qName);
 		Stuff stuff = service.getPort(Stuff.class);
 		System.out.println(stuff.search(args[2]));
@@ -75,8 +76,9 @@ URL url = null;
 		} catch (MalformedURLException e) {
 			System.out.println("URL nicht korrect angegeben");
 			synopsis();
+			System.exit(0);
 		}
-		QName qName = new QName ("http://iKnowRT/","SearcherService");
+		QName qName = new QName ("http://iKnowRT/","ServerIsDoingITService");
 		Service service = Service.create(url,qName);
 		Stuff stuff = service.getPort(Stuff.class);
 		if(stuff.erstelleEintrag(args[2], args[3]))
@@ -89,6 +91,7 @@ URL url = null;
 	 */
 	public static void synopsis(){
 		//TODO put out synopsis
+		System.out.println("EIn Fehler ist abgetreten");
 	}
 	/**
 	 * Bereitet die Argumente zu ueberpruefung vor
