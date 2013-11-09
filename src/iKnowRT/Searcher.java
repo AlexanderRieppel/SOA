@@ -8,11 +8,10 @@ import datenbasis.MapInterface;
 
 public class Searcher {
 	
-	public static List search (String s){
+	public static List search (Map map,String s){
 		
 		MapInterface mi = null;
 		
-		Map map = mi.getMap();
 		
 		if(!map.containsKey(s))
 			return null;
