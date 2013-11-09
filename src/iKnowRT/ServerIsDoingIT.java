@@ -16,8 +16,8 @@ public class ServerIsDoingIT implements Stuff{
 	@Override
 	public boolean erstelleEintrag(String thema,
 			@WebParam(name = "content") String content) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return Creator.erstelleEintrag(thema, content);
 	}
 
 }
