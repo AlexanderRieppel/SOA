@@ -6,8 +6,8 @@ import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 /**
- * CLIENT
- * @author THomas Traxler
+ * SOA KwonIT Client
+ * @author Thomas Traxler
  *
  */
 public class KnowIt {
@@ -40,23 +40,14 @@ public class KnowIt {
 				synopsis();
 				break;
 		}
-//		//url = ( args.length > 0 ) ? args[0] : "http://localhost:4434/miniwebservice"; 
-//	      Service service = Service.create(
-//	            new URL( url + "?wsdl" ),
-//	            new QName( "http://miniwebservice/", "HalloWeltImplService" ) );//Nich richtig jetzt 
-//		Stuff stuff = service.getPort( Stuff.class);
-//		if(true){//search
-//			System.out.println(stuff.search("args"));
-//		}else{//create
-//			boolean bool = stuff.erstelleEintrag("Thema","Content");
-//			if(bool);
-//				//Do something with it
-//			
-//		}
 		
 		
 
 	}
+	/**
+	 * Fuehrt SOA Suche aus
+	 * @param args [0] unwichtig [1] URL [2] suchbegriff
+	 */
 	public static void search (String[] args){
 		URL url = null;
 		
@@ -72,6 +63,10 @@ public class KnowIt {
 		System.out.println(stuff.search(args[2]));
 		
 	}
+	/**
+	 * Fuehrt den Soa add aus
+	 * @param args [0] unwichtig [1] URL [2] eintrags KEY [3] eintrags Inhalt
+	 */
 	public static void add (String[] args){
 URL url = null;
 		
@@ -89,15 +84,28 @@ URL url = null;
 		else
 			System.out.println("Eintrag konnte nicht erstellt werden");
 	}
+	/**
+	 * Gib die Synopsis aus, wird bei falschverwendung aufgerufen
+	 */
 	public static void synopsis(){
 		//TODO put out synopsis
 	}
+	/**
+	 * Bereitet die Argumente zu ueberpruefung vor
+	 * @param args
+	 * @return
+	 */
 	public static String[] prepareArgs(String[] args){
 		char[] charArray = args[0].toCharArray();
 		charArray[0] = Character.toUpperCase(charArray[0]);
 		args[0]=String.copyValueOf(charArray);
 		return args;
 	}
+	/**
+	 * 
+	 * @param args
+	 * @return
+	 */
 	public static String[] prepareSearchArgs(String[] args){
 		if(args.length!=3){
 			synopsis();
@@ -105,6 +113,11 @@ URL url = null;
 		}
 		return args;
 	}
+	/**
+	 * 
+	 * @param args
+	 * @return
+	 */
 	public static String[] prepareAddArgs(String[] args){
 		if(args.length!=4){
 			synopsis();
